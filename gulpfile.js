@@ -21,7 +21,10 @@ gulp.task('clean:dist', function () {
 
   // Delete contents but not dist folder to avoid broken npm links
   // when dist directory is removed while npm link references it.
-  return deleteFolders([distFolder + '/**', '!' + distFolder]);
+  //   return deleteFolders([distFolder + '/**', '!' + distFolder]);
+
+  // https://github.com/jvandemo/generator-angular2-library/issues/136
+  return deleteFolders([distFolder + '/**', '!' + distFolder, '!' + distFolder + "/index.js"]);
 });
 
 /**
